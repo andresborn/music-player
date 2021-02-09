@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  padding: 1% 2%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.justify-text {
+  text-align: justify;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.start-text {
+  text-align: start;
+}
+
+.end-text {
+  text-align: end;
+}
+
+.mx {
+  margin: 0 5%;
+}
+
+.my {
+  margin: 2% 0;
+}
+/* For toggler */
+.hidden {
+  display: none;
+}
+
+@keyframes grow-down {
+  0% {
+    transform: scaleY(0);
   }
-  to {
-    transform: rotate(360deg);
+  30% {
+    transform: scaleY(0.4);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+/* Set this class to any object you want to become a dropdown menu*/
+.dropdown {
+  animation: grow-down 300ms ease-in-out forwards;
+  transform-origin: top;
+}
+
+@keyframes slide {
+  0% {
+    transform: scaleX(0);
+  }
+  30% {
+    transform: scaleX(0.4);
+  }
+  90% {
+    transform: scaleX(1.1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.slider {
+  animation: slide 200ms ease-in forwards;
+  transform-origin: left;
+}
+
+.button {
+  width: 120px;
+  height: 100px;
+  font-size: 40px;
+  border-radius: 30%;
+}
+
+/* For mobile, align everything in a column */
+@media only screen and (max-width: 475px) {
+  .container {
+    display: flex;
+    flex-direction: column;
   }
 }
