@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-  padding: 1% 2%;
+  padding: 5px 8px;
 }
 
 .center {
@@ -93,17 +93,16 @@ body {
   transform-origin: left;
 }
 
-.button {
-  width: 120px;
-  height: 100px;
-  font-size: 40px;
-  border-radius: 30%;
+.list {
+  font-size: smaller;
+  list-style-type: none;
 }
 
-/* For mobile, align everything in a column */
-@media only screen and (max-width: 475px) {
-  .container {
-    display: flex;
-    flex-direction: column;
-  }
+.button {
+  width: 80px;
+  height: 60px;
+  font-size: 20px;
+  border-radius: 50px;
+  color: aliceblue;
+  background-color: cadetblue;
 }
