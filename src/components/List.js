@@ -3,7 +3,7 @@ import React from 'react'
 const List = props => {
     return (
         <div className="container center column">
-            {props.children}
+            <ul>{props.children}</ul>
         </div>
     )
 }
