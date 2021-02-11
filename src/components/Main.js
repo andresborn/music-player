@@ -15,9 +15,9 @@ const Main = (props) => {
       const response = await fetch(
         "https://assets.breatheco.de/apis/sound/songs"
       );
-      let songs = await response.json();
+      let songsResponse = await response.json();
       let songArray = [];
-      songs.forEach((song, i) => {
+      songsResponse.forEach((song, i) => {
         const songIdx = i;
         const songName = song.name;
         const songURL = song.url;
@@ -41,8 +41,12 @@ const Main = (props) => {
   }, [currentSong]);
 
   const play = () => {
-    audioEL.current.play();
-    setIsPlaying(true);
+    if (!currentSong) { // if you press play button before selecting a song, this will prevent crashing
+        return
+    } else {
+        audioEL.current.play();
+        setIsPlaying(true);}
+    
   };
 
   const pause = () => {
@@ -51,29 +55,37 @@ const Main = (props) => {
   };
 
   const forward = () => {
-    const next = songs.filter((song, i) => {
-      if (currentSong.songIdx === 21) {
-        return song.songIdx === 0;
-      } else {
-        if (song.songIdx === currentSong.songIdx + 1) {
-          return song;
-        }
-      }
-    });
-    setCurrentSong(next[0]);
+    if (!currentSong) {
+        return
+    } else {
+        const next = songs.filter((song, i) => {
+            if (currentSong.songIdx+1 > songs.length-1) { // If next song index will be bigger than the length of the array
+              return song.songIdx === 0; // go back to the beginning / return our song obj
+            } else {
+              if (song.songIdx === currentSong.songIdx + 1) {
+                return song;
+              }
+            }
+          });
+          setCurrentSong(next[0]);
+    }
   };
 
   const previous = () => {
-    const previous = songs.filter((song, i) => {
-      if (currentSong.songIdx === 0) {
-        return song.songIdx === 21;
+      if (!currentSong) {
+          return
       } else {
-        if (song.songIdx === currentSong.songIdx - 1) {
-          return song;
-        }
+        const previous = songs.filter((song, i) => {
+            if (currentSong.songIdx === 0) {
+              return song.songIdx === 21;
+            } else {
+              if (song.songIdx === currentSong.songIdx - 1) {
+                return song;
+              }
+            }
+          });
+          setCurrentSong(previous[0]);
       }
-    });
-    setCurrentSong(previous[0]);
   };
 
   const PlayButton = () => {
@@ -92,7 +104,7 @@ const Main = (props) => {
     if (!currentSong.songName) {
         return <Header
         className="center text-white"
-        currentSong="Lets Play Some Music!"
+        currentSong="Pick a song!"
       />
     } else {
       return <Header
