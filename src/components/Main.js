@@ -10,6 +10,9 @@ const Main = (props) => {
 
   const audioEL = useRef();
 
+  const apiURL = "https://assets.breatheco.de/apis/sound/";
+
+  // Get data and store it in state
   useEffect(() => {
     const requestSongs = async () => {
       const response = await fetch(
@@ -29,16 +32,15 @@ const Main = (props) => {
     requestSongs();
   }, []);
 
-  const apiURL = "https://assets.breatheco.de/apis/sound/";
-
-  const changeSong = (i) => {
-    setCurrentSong(songs[i]);
-  };
-
   useEffect(() => {
     // We are monitoring currentSong, and if it changes, play the audio
     audioEL.current.play();
   }, [currentSong]);
+
+  // Functionality
+  const changeSong = (i) => {
+    setCurrentSong(songs[i]);
+  };
 
   const play = () => {
     if (!currentSong) { // if you press play button before selecting a song, this will prevent crashing
@@ -88,6 +90,7 @@ const Main = (props) => {
       }
   };
 
+  //Dynamic rendering
   const PlayButton = () => {
     if (isPlaying) {
       return (
