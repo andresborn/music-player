@@ -9,7 +9,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--charcoal);
+  background-color: white;
 }
 
 * {
@@ -55,6 +55,9 @@ body {
 
 .container {
   padding: 5px 8px;
+  border: 2px solid var(--white);
+  border-radius: 10px;
+  background-color: var(--charcoal);
 }
 
 .center {
@@ -147,4 +150,5 @@ body {
   height: 60px;
   font-size: 20px;
   border-radius: 50px;
+  margin: 10px;
 }

@@ -119,13 +119,13 @@ const Main = (props) => {
           </li>
         ))}
       </List>
-      <div className="container center column mx">
+      
         <audio
           ref={audioEL}
           src={apiURL + currentSong.songURL}
           type="audio/mp3"
         ></audio>
-      </div>
+      
       <div className="center row mx">
         <Button
           icon={<i className="bi-skip-backward-fill icon"></i>}
