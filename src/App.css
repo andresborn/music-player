@@ -42,7 +42,7 @@ body {
 
 .song-item {
   width: 80vw;
-  height: 3vh;
+  height: 20px;
   border: 0.1px solid var(--white);
   display: flex;
   justify-content: space-between;
@@ -147,6 +147,4 @@ body {
   height: 60px;
   font-size: 20px;
   border-radius: 50px;
-  color: aliceblue;
-  background-color: cadetblue;
 }

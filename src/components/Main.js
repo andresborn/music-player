@@ -88,12 +88,23 @@ const Main = (props) => {
     }
   };
 
+  const HeaderDisplay = () => {
+    if (!currentSong.songName) {
+        return <Header
+        className="center text-white"
+        currentSong="Lets Play Some Music!"
+      />
+    } else {
+      return <Header
+        className="center text-white"
+        currentSong={currentSong.songName}
+      />;
+    }
+  };
+
   return (
     <div className="container center column mx my">
-      <Header
-        className="container center text-white"
-        currentSong="Lets Play some music!"
-      />
+    <HeaderDisplay />
       <List className="text-white column">
         {songs.map((song, i) => (
           <li

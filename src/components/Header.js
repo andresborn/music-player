@@ -3,7 +3,7 @@ import React from 'react'
 const Header = props => {
     return (
         <div className={props.className}>
-            <h1>{props.currentSong}</h1>
+            <h2>{props.currentSong}</h2>
         </div>
     )
 }
